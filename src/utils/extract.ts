@@ -25,6 +25,10 @@ const CPU_PATTERNS: RegExp[] = [
   /\bAMD\s+A\d{1,2}[- ]?\d{3,4}\w*(?:\s+APU)?/i,
   /\b(?:Intel\s+)?Core\s+Ultra\s+\d\s+\d{3}\w*/i,
   /\b(?:Intel\s+)?Core\s+i\d[- ]?\d{3,5}\w*/i,
+  // New Intel "Core 5/7/…" naming (no "i", no "Ultra") — e.g. "Core 5 210H", "Core 7 240H"
+  /\b(?:Intel\s+)?Core\s+\d\s+\d{2,4}\w*/i,
+  // Bare "Ultra 7 265KF" (no "Core") — vendor/series is filled in by addCpuVendor
+  /\bUltra\s+\d\s+\d{3}\w*/i,
   /\bi[3579][- ]\d{3,5}\w*\b/i,
   /\b(?:Intel\s+)?Xeon\b[\w\s+-]*?\d{3,5}\w*/i,
   /\b(?:Intel\s+)?(?:Pentium|Celeron)[\w\s-]*?\d+\w*/i,
@@ -73,10 +77,29 @@ function firstMatch(text: string, patterns: RegExp[]): string | null {
   return null;
 }
 
-/** Strict CPU extraction (recognised anchor required). */
+/**
+ * Prepend the manufacturer to a bare CPU model when it is missing, so the query
+ * matches PassMark's naming (which is vendor-prefixed, e.g. "AMD Ryzen 7 8745HX",
+ * "Intel Core Ultra 7 265KF"). GPU names on PassMark are NOT vendor-prefixed, so
+ * this is applied to CPUs only.
+ */
+export function addCpuVendor(model: string): string {
+  const m = model.trim();
+  if (/^(amd|intel|apple|qualcomm)\b/i.test(m)) return m; // already has a vendor
+  if (/^(ryzen|epyc|threadripper|athlon)\b/i.test(m)) return `AMD ${m}`;
+  if (/^core\b/i.test(m)) return `Intel ${m}`; // Core i7 / Core Ultra / Core 5
+  if (/^ultra\b/i.test(m)) return `Intel Core ${m}`; // "Ultra 7 265KF"
+  if (/^i[3579][- ]\d/i.test(m)) return `Intel Core ${m}`; // "i7-13700K"
+  if (/^(xeon|pentium|celeron)\b/i.test(m)) return `Intel ${m}`;
+  return m;
+}
+
+/** Strict CPU extraction (recognised anchor required), with vendor normalised. */
 export function extractCpuModel(raw: string): string | null {
   const cleaned = cleanSelection(raw);
-  return cleaned ? firstMatch(cleaned, CPU_PATTERNS) : null;
+  if (!cleaned) return null;
+  const match = firstMatch(cleaned, CPU_PATTERNS);
+  return match ? addCpuVendor(match) : null;
 }
 
 /** Strict GPU extraction (recognised anchor required). */

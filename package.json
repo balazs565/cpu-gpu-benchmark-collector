@@ -1,0 +1,26 @@
+{
+  "name": "cpu-gpu-benchmark-collector",
+  "version": "1.0.0",
+  "description": "Chrome extension to look up and compare PassMark CPU Mark (CPU) and G3D Mark (GPU) scores directly from selected text on any webpage.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "gen:icons": "node scripts/gen-icons.mjs",
+    "build": "node scripts/build.mjs",
+    "type-check": "tsc --noEmit",
+    "clean": "node -e \"import('node:fs').then(fs=>fs.rmSync('dist',{recursive:true,force:true}))\""
+  },
+  "keywords": [
+    "chrome-extension",
+    "passmark",
+    "cpu-benchmark",
+    "gpu-benchmark",
+    "manifest-v3"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "typescript": "^5.5.4",
+    "vite": "^8.2.2"
+  }
+}

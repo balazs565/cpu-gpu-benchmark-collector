@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CPU &amp; GPU Benchmark Collector</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-head">
+        <div class="brand">
+          <span class="bolt">⚡</span>
+          <span class="brand-title">CPU &amp; GPU Benchmark Collector</span>
+        </div>
+        <button id="settings-btn" class="icon-btn" title="Settings" aria-label="Settings">⚙</button>
+      </header>
+
+      <form id="search-form" class="search">
+        <div class="seg" role="group" aria-label="Device type">
+          <button type="button" class="seg-btn is-active" data-type="auto">Auto</button>
+          <button type="button" class="seg-btn" data-type="cpu">CPU</button>
+          <button type="button" class="seg-btn" data-type="gpu">GPU</button>
+        </div>
+        <div class="search-row">
+          <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="Search a CPU or GPU on PassMark…" />
+          <button type="submit" id="search-btn" class="btn btn-primary">Search</button>
+        </div>
+      </form>
+
+      <section id="search-result" class="search-result" hidden></section>
+
+      <nav class="tabs" role="tablist">
+        <button class="tab is-active" data-tab="saved" role="tab">Saved</button>
+        <button class="tab" data-tab="comparison" role="tab">Comparison</button>
+      </nav>
+
+      <main class="panel">
+        <section id="tab-saved" class="tab-panel is-active"></section>
+        <section id="tab-comparison" class="tab-panel"></section>
+      </main>
+
+      <footer class="app-foot">
+        <span>Source: <b>PassMark</b> · CPU Mark &amp; G3D Mark</span>
+      </footer>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

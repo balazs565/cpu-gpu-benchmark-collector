@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CPU &amp; GPU Benchmark Collector — Options</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="head">
+        <span class="bolt">⚡</span>
+        <h1>CPU &amp; GPU Benchmark Collector</h1>
+        <p class="sub">Options &amp; data controls</p>
+      </header>
+
+      <section class="card">
+        <h2>Benchmark source</h2>
+        <p class="muted">
+          The only benchmark source is <b>PassMark</b>: <b>CPU Mark</b> for processors
+          (cpubenchmark.net) and <b>G3D Mark</b> for graphics cards (videocardbenchmark.net).
+          Scores are read verbatim from PassMark and are never estimated. No other benchmark
+          database is ever used.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Cache</h2>
+        <div class="row">
+          <label for="cache">Cache duration</label>
+          <select id="cache"></select>
+        </div>
+        <p class="muted">
+          Retrieved devices are cached locally. Results older than this are refreshed from
+          PassMark automatically; you can also refresh any device manually at any time.
+        </p>
+        <div class="row">
+          <span id="index-status" class="muted">Checking local indexes…</span>
+          <button id="clear-index" class="btn">Clear PassMark cache</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Behaviour</h2>
+        <div class="row">
+          <label for="selbtn">Show “⚡ Check Benchmark” button on text selection</label>
+          <input id="selbtn" type="checkbox" />
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Privacy</h2>
+        <p class="muted">
+          Only the model you look up is sent to PassMark. Page contents are never sent anywhere.
+          No browsing history is collected, and there is no tracking or analytics.
+        </p>
+      </section>
+
+      <p class="save-note" id="save-note"></p>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

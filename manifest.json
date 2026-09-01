@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "CPU & GPU Benchmark Collector",
   "version": "1.0.0",
-  "description": "Look up and compare PassMark CPU Mark (CPU) and G3D Mark (GPU) scores from any model you select while browsing. Results appear inline — no new tab.",
+  "description": "Check PassMark CPU Mark & G3D Mark scores for any CPU or GPU you select while browsing. Results appear inline, no new tab.",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",

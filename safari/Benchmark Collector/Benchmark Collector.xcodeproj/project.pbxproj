@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D4A5C26830821B8300BF5F4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A5C26730821B8300BF5F4D /* AppDelegate.swift */; };
+		D4A5C26C30821B8300BF5F4D /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C26A30821B8300BF5F4D /* Main.html */; };
+		D4A5C26E30821B8300BF5F4D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C26D30821B8300BF5F4D /* Icon.png */; };
+		D4A5C27030821B8300BF5F4D /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C26F30821B8300BF5F4D /* Style.css */; };
+		D4A5C27230821B8300BF5F4D /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C27130821B8300BF5F4D /* Script.js */; };
+		D4A5C27430821B8300BF5F4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A5C27330821B8300BF5F4D /* ViewController.swift */; };
+		D4A5C27730821B8300BF5F4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C27530821B8300BF5F4D /* Main.storyboard */; };
+		D4A5C27930821B8400BF5F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C27830821B8400BF5F4D /* Assets.xcassets */; };
+		D4A5C28030821B8400BF5F4D /* Benchmark Collector Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D4A5C27F30821B8400BF5F4D /* Benchmark Collector Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D4A5C28530821B8400BF5F4D /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A5C28430821B8400BF5F4D /* SafariWebExtensionHandler.swift */; };
+		D4A5C29B30821B8400BF5F4D /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C29130821B8400BF5F4D /* popup.js */; };
+		D4A5C29C30821B8400BF5F4D /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C29230821B8400BF5F4D /* popup.html */; };
+		D4A5C29D30821B8400BF5F4D /* options.js in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C29330821B8400BF5F4D /* options.js */; };
+		D4A5C29E30821B8400BF5F4D /* icons in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C29430821B8400BF5F4D /* icons */; };
+		D4A5C29F30821B8400BF5F4D /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C29530821B8400BF5F4D /* manifest.json */; };
+		D4A5C2A030821B8400BF5F4D /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C29630821B8400BF5F4D /* options.html */; };
+		D4A5C2A130821B8400BF5F4D /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C29730821B8400BF5F4D /* popup.css */; };
+		D4A5C2A230821B8400BF5F4D /* service-worker.js in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C29830821B8400BF5F4D /* service-worker.js */; };
+		D4A5C2A330821B8400BF5F4D /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C29930821B8400BF5F4D /* content.js */; };
+		D4A5C2A430821B8400BF5F4D /* options.css in Resources */ = {isa = PBXBuildFile; fileRef = D4A5C29A30821B8400BF5F4D /* options.css */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4A5C28130821B8400BF5F4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4A5C25C30821B8300BF5F4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4A5C27E30821B8400BF5F4D;
+			remoteInfo = "Benchmark Collector Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D4A5C28C30821B8400BF5F4D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				D4A5C28030821B8400BF5F4D /* Benchmark Collector Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D4A5C26430821B8300BF5F4D /* Benchmark Collector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Benchmark Collector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4A5C26730821B8300BF5F4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D4A5C26B30821B8300BF5F4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		D4A5C26D30821B8300BF5F4D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		D4A5C26F30821B8300BF5F4D /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		D4A5C27130821B8300BF5F4D /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		D4A5C27330821B8300BF5F4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4A5C27630821B8300BF5F4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D4A5C27830821B8400BF5F4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4A5C27A30821B8400BF5F4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4A5C27F30821B8400BF5F4D /* Benchmark Collector Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Benchmark Collector Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4A5C28430821B8400BF5F4D /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		D4A5C28630821B8400BF5F4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4A5C29130821B8400BF5F4D /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = popup.js; path = ../../../dist/popup.js; sourceTree = "<group>"; };
+		D4A5C29230821B8400BF5F4D /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = ../../../dist/popup.html; sourceTree = "<group>"; };
+		D4A5C29330821B8400BF5F4D /* options.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = options.js; path = ../../../dist/options.js; sourceTree = "<group>"; };
+		D4A5C29430821B8400BF5F4D /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../dist/icons; sourceTree = "<group>"; };
+		D4A5C29530821B8400BF5F4D /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../dist/manifest.json; sourceTree = "<group>"; };
+		D4A5C29630821B8400BF5F4D /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = ../../../dist/options.html; sourceTree = "<group>"; };
+		D4A5C29730821B8400BF5F4D /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = popup.css; path = ../../../dist/popup.css; sourceTree = "<group>"; };
+		D4A5C29830821B8400BF5F4D /* service-worker.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "service-worker.js"; path = "../../../dist/service-worker.js"; sourceTree = "<group>"; };
+		D4A5C29930821B8400BF5F4D /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = content.js; path = ../../../dist/content.js; sourceTree = "<group>"; };
+		D4A5C29A30821B8400BF5F4D /* options.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = options.css; path = ../../../dist/options.css; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4A5C26130821B8300BF5F4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		D4A5C27C30821B8400BF5F4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4A5C25B30821B8300BF5F4D = {
+			isa = PBXGroup;
+			children = (
+				D4A5C26630821B8300BF5F4D /* Benchmark Collector */,
+				D4A5C28330821B8400BF5F4D /* Benchmark Collector Extension */,
+				D4A5C26530821B8300BF5F4D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4A5C26530821B8300BF5F4D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4A5C26430821B8300BF5F4D /* Benchmark Collector.app */,
+				D4A5C27F30821B8400BF5F4D /* Benchmark Collector Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4A5C26630821B8300BF5F4D /* Benchmark Collector */ = {
+			isa = PBXGroup;
+			children = (
+				D4A5C26730821B8300BF5F4D /* AppDelegate.swift */,
+				D4A5C27330821B8300BF5F4D /* ViewController.swift */,
+				D4A5C27530821B8300BF5F4D /* Main.storyboard */,
+				D4A5C27830821B8400BF5F4D /* Assets.xcassets */,
+				D4A5C27A30821B8400BF5F4D /* Info.plist */,
+				D4A5C26930821B8300BF5F4D /* Resources */,
+			);
+			path = "Benchmark Collector";
+			sourceTree = "<group>";
+		};
+		D4A5C26930821B8300BF5F4D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4A5C26A30821B8300BF5F4D /* Main.html */,
+				D4A5C26D30821B8300BF5F4D /* Icon.png */,
+				D4A5C26F30821B8300BF5F4D /* Style.css */,
+				D4A5C27130821B8300BF5F4D /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D4A5C28330821B8400BF5F4D /* Benchmark Collector Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D4A5C29030821B8400BF5F4D /* Resources */,
+				D4A5C28430821B8400BF5F4D /* SafariWebExtensionHandler.swift */,
+				D4A5C28630821B8400BF5F4D /* Info.plist */,
+			);
+			path = "Benchmark Collector Extension";
+			sourceTree = "<group>";
+		};
+		D4A5C29030821B8400BF5F4D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4A5C29130821B8400BF5F4D /* popup.js */,
+				D4A5C29230821B8400BF5F4D /* popup.html */,
+				D4A5C29330821B8400BF5F4D /* options.js */,
+				D4A5C29430821B8400BF5F4D /* icons */,
+				D4A5C29530821B8400BF5F4D /* manifest.json */,
+				D4A5C29630821B8400BF5F4D /* options.html */,
+				D4A5C29730821B8400BF5F4D /* popup.css */,
+				D4A5C29830821B8400BF5F4D /* service-worker.js */,
+				D4A5C29930821B8400BF5F4D /* content.js */,
+				D4A5C29A30821B8400BF5F4D /* options.css */,
+			);
+			name = Resources;
+			path = "Benchmark Collector Extension";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4A5C26330821B8300BF5F4D /* Benchmark Collector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4A5C28D30821B8400BF5F4D /* Build configuration list for PBXNativeTarget "Benchmark Collector" */;
+			buildPhases = (
+				D4A5C26030821B8300BF5F4D /* Sources */,
+				D4A5C26130821B8300BF5F4D /* Frameworks */,
+				D4A5C26230821B8300BF5F4D /* Resources */,
+				D4A5C28C30821B8400BF5F4D /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4A5C28230821B8400BF5F4D /* PBXTargetDependency */,
+			);
+			name = "Benchmark Collector";
+			productName = "Benchmark Collector";
+			productReference = D4A5C26430821B8300BF5F4D /* Benchmark Collector.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4A5C27E30821B8400BF5F4D /* Benchmark Collector Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4A5C28930821B8400BF5F4D /* Build configuration list for PBXNativeTarget "Benchmark Collector Extension" */;
+			buildPhases = (
+				D4A5C27B30821B8400BF5F4D /* Sources */,
+				D4A5C27C30821B8400BF5F4D /* Frameworks */,
+				D4A5C27D30821B8400BF5F4D /* Resources */,
+			);
+			buildRules = (
+			);
+			name = "Benchmark Collector Extension";
+			productName = "Benchmark Collector Extension";
+			productReference = D4A5C27F30821B8400BF5F4D /* Benchmark Collector Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4A5C25C30821B8300BF5F4D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					D4A5C26330821B8300BF5F4D = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					D4A5C27E30821B8400BF5F4D = {
+						CreatedOnToolsVersion = 27.0;
+					};
+				};
+			};
+			buildConfigurationList = D4A5C25F30821B8300BF5F4D /* Build configuration list for PBXProject "Benchmark Collector" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4A5C25B30821B8300BF5F4D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D4A5C26530821B8300BF5F4D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4A5C26330821B8300BF5F4D /* Benchmark Collector */,
+				D4A5C27E30821B8400BF5F4D /* Benchmark Collector Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4A5C26230821B8300BF5F4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				D4A5C26E30821B8300BF5F4D /* Icon.png in Resources */,
+				D4A5C27730821B8300BF5F4D /* Main.storyboard in Resources */,
+				D4A5C27230821B8300BF5F4D /* Script.js in Resources */,
+				D4A5C26C30821B8300BF5F4D /* Main.html in Resources */,
+				D4A5C27930821B8400BF5F4D /* Assets.xcassets in Resources */,
+				D4A5C27030821B8300BF5F4D /* Style.css in Resources */,
+			);
+		};
+		D4A5C27D30821B8400BF5F4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				D4A5C29B30821B8400BF5F4D /* popup.js in Resources */,
+				D4A5C2A130821B8400BF5F4D /* popup.css in Resources */,
+				D4A5C2A430821B8400BF5F4D /* options.css in Resources */,
+				D4A5C29E30821B8400BF5F4D /* icons in Resources */,
+				D4A5C29F30821B8400BF5F4D /* manifest.json in Resources */,
+				D4A5C2A230821B8400BF5F4D /* service-worker.js in Resources */,
+				D4A5C29D30821B8400BF5F4D /* options.js in Resources */,
+				D4A5C2A330821B8400BF5F4D /* content.js in Resources */,
+				D4A5C29C30821B8400BF5F4D /* popup.html in Resources */,
+				D4A5C2A030821B8400BF5F4D /* options.html in Resources */,
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4A5C26030821B8300BF5F4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				D4A5C27430821B8300BF5F4D /* ViewController.swift in Sources */,
+				D4A5C26830821B8300BF5F4D /* AppDelegate.swift in Sources */,
+			);
+		};
+		D4A5C27B30821B8400BF5F4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				D4A5C28530821B8400BF5F4D /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4A5C28230821B8400BF5F4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4A5C27E30821B8400BF5F4D /* Benchmark Collector Extension */;
+			targetProxy = D4A5C28130821B8400BF5F4D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4A5C26A30821B8300BF5F4D /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4A5C26B30821B8300BF5F4D /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		D4A5C27530821B8300BF5F4D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4A5C27630821B8300BF5F4D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4A5C28730821B8400BF5F4D /* Debug configuration for PBXProject "Benchmark Collector" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D4A5C28830821B8400BF5F4D /* Release configuration for PBXProject "Benchmark Collector" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		D4A5C28A30821B8400BF5F4D /* Debug configuration for PBXNativeTarget "Benchmark Collector Extension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Benchmark Collector Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Benchmark Collector Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.balazs555.BenchmarkCollector.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D4A5C28B30821B8400BF5F4D /* Release configuration for PBXNativeTarget "Benchmark Collector Extension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Benchmark Collector Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Benchmark Collector Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.balazs555.BenchmarkCollector.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D4A5C28E30821B8400BF5F4D /* Debug configuration for PBXNativeTarget "Benchmark Collector" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Benchmark Collector/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Benchmark Collector";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSViewGestureRecognizerIsExclusive = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.balazs555.BenchmarkCollector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D4A5C28F30821B8400BF5F4D /* Release configuration for PBXNativeTarget "Benchmark Collector" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Benchmark Collector/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Benchmark Collector";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSViewGestureRecognizerIsExclusive = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.balazs555.BenchmarkCollector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4A5C25F30821B8300BF5F4D /* Build configuration list for PBXProject "Benchmark Collector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4A5C28730821B8400BF5F4D /* Debug configuration for PBXProject "Benchmark Collector" */,
+				D4A5C28830821B8400BF5F4D /* Release configuration for PBXProject "Benchmark Collector" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		D4A5C28930821B8400BF5F4D /* Build configuration list for PBXNativeTarget "Benchmark Collector Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4A5C28A30821B8400BF5F4D /* Debug configuration for PBXNativeTarget "Benchmark Collector Extension" */,
+				D4A5C28B30821B8400BF5F4D /* Release configuration for PBXNativeTarget "Benchmark Collector Extension" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		D4A5C28D30821B8400BF5F4D /* Build configuration list for PBXNativeTarget "Benchmark Collector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4A5C28E30821B8400BF5F4D /* Debug configuration for PBXNativeTarget "Benchmark Collector" */,
+				D4A5C28F30821B8400BF5F4D /* Release configuration for PBXNativeTarget "Benchmark Collector" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4A5C25C30821B8300BF5F4D /* Project object */;
+	validationLevel = 1;
+}

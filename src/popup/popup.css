@@ -154,5 +154,9 @@ body {
 .setting-row select { padding: 6px 8px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--fg); font-size: 12.5px; }
 .settings .hint { font-size: 11px; color: var(--muted); margin-top: 6px; }
 
-.app-foot { display: flex; align-items: center; justify-content: center; padding: 9px 14px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
+.app-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 14px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
 .app-foot b { color: var(--accent); }
+.kofi { display: inline-flex; align-items: center; gap: 4px; flex: none; padding: 3px 7px; margin: -3px -7px; border-radius: 7px; color: var(--muted); font-weight: 600; text-decoration: none; }
+.kofi:hover { background: var(--surface-2); color: var(--fg); }
+.kofi-ic { display: block; }
+.kofi-heart { fill: #ff5e5b; }

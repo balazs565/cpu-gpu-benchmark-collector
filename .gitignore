@@ -3,3 +3,5 @@ dist/
 public/icons/*.png
 *.log
 .DS_Store
+release/
+xcuserdata/

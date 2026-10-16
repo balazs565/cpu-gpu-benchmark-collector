@@ -94,6 +94,36 @@ npm run build
 
 Then load `dist/` via `chrome://extensions` → Developer mode → **Load unpacked**.
 
+For the Chrome Web Store, zip the **contents** of `dist/` (so `manifest.json` sits at the zip
+root) and upload that zip.
+
+## Safari (macOS)
+
+Requirements: **Xcode** (macOS 12+, Safari 15.4+).
+
+The Safari version lives in [`safari/`](safari/) — an Xcode project generated with
+`xcrun safari-web-extension-converter`. It **references the files in `dist/`** rather than
+copying them, so Chrome and Safari always ship the same build:
+
+```bash
+npm run build
+open "safari/Benchmark Collector/Benchmark Collector.xcodeproj"
+```
+
+In Xcode, select your team under **Signing & Capabilities** for both targets
+(`Benchmark Collector` and `Benchmark Collector Extension`), then **Run**. Turn the extension
+on in Safari → Settings → Extensions and allow it on websites (it needs
+`cpubenchmark.net` / `videocardbenchmark.net` access to fetch scores).
+
+An unsigned (“Sign to Run Locally”) build only loads after enabling Safari → Develop →
+**Allow Unsigned Extensions**, which resets each time Safari quits. Publishing to the Mac App
+Store requires an Apple Developer Program membership (Product → Archive in Xcode).
+
+## Support
+
+If this extension saves you time, you can buy me a coffee on
+[Ko-fi](https://ko-fi.com/balazs555) ☕ — the link is also in the popup's bottom-right corner.
+
 ## Permissions
 
 | Permission | Why |

@@ -67,6 +67,8 @@ export interface DeviceRecord {
 export interface PassMarkIndex {
   entries: DeviceIndexEntry[];
   fetchedAt: number;
+  /** 'list' = built from the public list page, so entries have no secondary mark. */
+  source?: 'data' | 'list';
 }
 
 /** User-configurable settings. */

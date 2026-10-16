@@ -17,6 +17,18 @@ export interface DomainConfig {
   warmupUrl: string;
   /** Data endpoints tried in order. */
   dataEndpoints: string[];
+  /**
+   * Public list page used when the data endpoints come back empty (they need
+   * the PHPSESSID cookie, which Safari doesn't keep for extension requests).
+   */
+  listUrl: string;
+  /**
+   * One list-page row: id, URL-encoded name (from the link — the link text can
+   * be mangled by Cloudflare's email obfuscation), primary mark, rank.
+   */
+  listRow: RegExp;
+  /** The secondary score on a device detail page (list pages don't carry it). */
+  detailSecondary: RegExp;
   /** Build a detail-page URL from a raw href fragment (already entity-decoded). */
   detailPath: (fragment: string) => string;
   primaryLabel: string; // "CPU Mark" | "G3D Mark"
@@ -34,6 +46,9 @@ export const DOMAINS: Record<DeviceType, DomainConfig> = {
     baseUrl: 'https://www.cpubenchmark.net/',
     warmupUrl: 'https://www.cpubenchmark.net/CPU_mega_page.html',
     dataEndpoints: ['https://www.cpubenchmark.net/data/', 'https://www.cpubenchmark.net/data/cpu_data.json'],
+    listUrl: 'https://www.cpubenchmark.net/cpu-list/all/',
+    listRow: /<tr id="cpu(\d+)"><td><a href="[^"]*?\?cpu=([^"&]*)&amp;id=\d+">.*?<\/a><\/td><td>([^<]*)<\/td><td>([^<]*)<\/td>/g,
+    detailSecondary: /Single Thread Rating<\/div>\s*<div[^>]*>([\d,]+)</,
     detailPath: (f) => `https://www.cpubenchmark.net/cpu.php?cpu=${f}`,
     primaryLabel: 'CPU Mark',
     secondaryLabel: 'Single Thread',
@@ -46,6 +61,9 @@ export const DOMAINS: Record<DeviceType, DomainConfig> = {
     baseUrl: 'https://www.videocardbenchmark.net/',
     warmupUrl: 'https://www.videocardbenchmark.net/GPU_mega_page.html',
     dataEndpoints: ['https://www.videocardbenchmark.net/data/'],
+    listUrl: 'https://www.videocardbenchmark.net/gpu_list.php',
+    listRow: /<tr id="gpu(\d+)"><td><a href="[^"]*?\?gpu=([^"&]*)&amp;id=\d+">.*?<\/a><\/td><td>([^<]*)<\/td><td>([^<]*)<\/td>/gi,
+    detailSecondary: /Average G2D Mark:<\/strong>\s*([\d,]+)/,
     detailPath: (f) => `https://www.videocardbenchmark.net/gpu.php?gpu=${f}`,
     primaryLabel: 'G3D Mark',
     secondaryLabel: 'G2D Mark',

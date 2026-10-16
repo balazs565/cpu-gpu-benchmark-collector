@@ -1,6 +1,8 @@
 # CPU & GPU Benchmark Collector
 
-A Manifest V3 Chrome extension for quickly checking and comparing **PassMark** scores while
+[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/balazs555)
+
+A Manifest V3 extension for Chrome and Safari for quickly checking and comparing **PassMark** scores while
 browsing — **CPU Mark** for processors and **G3D Mark** for graphics cards. Highlight a CPU
 or GPU model anywhere, and its benchmark appears **inline** — no new tab.
 
@@ -42,7 +44,11 @@ or GPU model anywhere, and its benchmark appears **inline** — no new tab.
 Both PassMark sites expose their full list as one JSON document
 (`https://www.cpubenchmark.net/data/` and `https://www.videocardbenchmark.net/data/`). The
 extension warms a session cookie, downloads each list once in the background, trims it to the
-fields it needs, caches it, and resolves all lookups locally. Per-device-type differences
+fields it needs, caches it, and resolves all lookups locally. Those JSON endpoints only answer
+with the session cookie, which Safari doesn't keep for extension requests, so when they come
+back empty the extension falls back to the public list pages (`/cpu-list/all/`,
+`/gpu_list.php`) and reads Single Thread / G2D Mark from the device's detail page once it is
+resolved. Multi-socket server CPUs show their single-CPU score in that mode. Per-device-type differences
 (URLs, endpoints, field names, metric labels) live entirely in
 [`src/services/domains.ts`](src/services/domains.ts); the fetch/match logic in
 [`src/services/passmark.ts`](src/services/passmark.ts) is shared.

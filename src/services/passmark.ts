@@ -21,6 +21,7 @@ import {
   BENCHMARK_SOURCE,
 } from '../types';
 import { decodeEntities } from '../utils/entities';
+import { parsePassMarkNumber } from '../utils/format';
 import { normalizeForMatch, scoreCandidates } from '../utils/normalize';
 import { detectDevice, looseModel } from '../utils/extract';
 import { DOMAINS, type DomainConfig } from './domains';
@@ -100,35 +101,87 @@ async function fetchJson(url: string, signal: AbortSignal): Promise<unknown> {
   }
 }
 
+/**
+ * Build an index from the public list page. It needs no session cookie, but
+ * carries only the primary mark and rank — see `withSecondary`.
+ */
+async function fetchIndexFromListPage(cfg: DomainConfig, signal: AbortSignal): Promise<PassMarkIndex> {
+  const res = await fetch(cfg.listUrl, { method: 'GET', signal, headers: { Accept: 'text/html,application/xhtml+xml' } });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const html = await res.text();
+  const entries: DeviceIndexEntry[] = [];
+  for (const [, id, encodedName, mark, rank] of html.matchAll(cfg.listRow)) {
+    const primaryMark = parsePassMarkNumber(mark);
+    if (primaryMark == null) continue;
+    let name: string;
+    try {
+      name = decodeURIComponent(encodedName.replace(/\+/g, ' ')).trim();
+    } catch {
+      continue;
+    }
+    entries.push({
+      id,
+      name,
+      normalizedName: normalizeForMatch(name),
+      type: cfg.type,
+      primaryMark,
+      secondaryMark: null,
+      rank: parsePassMarkRank(rank),
+      category: '',
+      sourceUrl: cfg.detailPath(`${encodedName}&id=${id}`),
+    });
+  }
+  if (entries.length === 0) throw new Error('malformed_response');
+  return { entries, fetchedAt: Date.now(), source: 'list' };
+}
+
 async function fetchIndexFromNetwork(cfg: DomainConfig): Promise<PassMarkIndex> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   try {
     await warmCookie(cfg, controller.signal);
-    let lastError: unknown = null;
     for (const endpoint of cfg.dataEndpoints) {
       try {
         const json = (await fetchJson(endpoint, controller.signal)) as { data?: PassMarkRawEntry[] };
         const rows = Array.isArray(json?.data) ? json.data : Array.isArray(json) ? (json as PassMarkRawEntry[]) : null;
-        if (!rows || rows.length === 0) {
-          lastError = new Error('malformed_response');
-          continue;
-        }
+        if (!rows || rows.length === 0) continue;
         const entries = rows
           .filter((r) => r && r.name != null && r.id != null)
           .map((r) => toIndexEntry(cfg, r))
           .filter((e) => e.primaryMark != null);
-        if (entries.length === 0) {
-          lastError = new Error('malformed_response');
-          continue;
-        }
-        return { entries, fetchedAt: Date.now() };
+        if (entries.length === 0) continue;
+        return { entries, fetchedAt: Date.now(), source: 'data' };
       } catch (e) {
-        lastError = e;
         if ((e as Error & { code?: string }).code === 'rate_limited') throw e;
       }
     }
-    throw lastError instanceof Error ? lastError : new Error('passmark_unavailable');
+    // Without the session cookie the data endpoints answer `{ "data": [] }`.
+    // Safari doesn't keep that cookie for extension requests.
+    return await fetchIndexFromListPage(cfg, controller.signal);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Entries from a list-page index have no secondary mark; read it from the
+ * device's detail page. Best effort: on failure the record just shows none.
+ */
+async function withSecondary(cfg: DomainConfig, index: PassMarkIndex, entry: DeviceIndexEntry): Promise<DeviceIndexEntry> {
+  if (index.source !== 'list' || entry.secondaryMark != null) return entry;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const res = await fetch(entry.sourceUrl, {
+      method: 'GET',
+      signal: controller.signal,
+      headers: { Accept: 'text/html,application/xhtml+xml' },
+    });
+    if (!res.ok) return entry;
+    const match = cfg.detailSecondary.exec(await res.text());
+    return match ? { ...entry, secondaryMark: parsePassMarkNumber(match[1]) } : entry;
+  } catch {
+    return entry;
   } finally {
     clearTimeout(timer);
   }
@@ -256,13 +309,13 @@ export async function lookup(
       status: 'passmark_unavailable',
       query: model,
       type,
-      message: 'PassMark result not found. The benchmark database could not be reached.',
+      message: `The benchmark database could not be reached. Check your connection and that the extension has access to ${new URL(cfg.baseUrl).hostname}.`,
     };
   }
 
   const exact = findExact(index, normalizedQuery);
   if (exact) {
-    const record = toRecord(cfg, exact);
+    const record = toRecord(cfg, await withSecondary(cfg, index, exact));
     await saveDevice(type, exact.id, record);
     return { status: 'ok', query: model, type, device: { ...record, id: exact.id }, stale: false };
   }
@@ -288,7 +341,7 @@ export async function resolveById(id: string, type: DeviceType, forceRefresh = f
   }
   const entry = index.entries.find((e) => e.id === id);
   if (!entry) return { status: 'not_found', type, message: 'PassMark result not found.' };
-  const record = toRecord(cfg, entry);
+  const record = toRecord(cfg, await withSecondary(cfg, index, entry));
   await saveDevice(type, entry.id, record);
   return { status: 'ok', type, device: { ...record, id: entry.id }, stale: false };
 }
